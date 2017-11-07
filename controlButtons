@@ -1,0 +1,61 @@
+#include <Keyboard.h>
+
+int const buttonDelayTime = 500;
+int const betweenKeys = 10;
+
+void setup() {
+  //Joystick and button connections
+  pinMode(2, INPUT_PULLUP); //Start Switch
+  pinMode(3, INPUT_PULLUP); //Pause Switch
+  pinMode(4, INPUT_PULLUP); //Stop Switch
+  pinMode(5, INPUT_PULLUP); //Coolant Switch
+  Keyboard.begin();
+}
+
+void loop() {
+  
+// Check the switches:
+  int buttonState2 = digitalRead(2);
+  int buttonState3 = digitalRead(3);
+  int buttonState4 = digitalRead(4);
+  int buttonState5 = digitalRead(5);
+
+// Start Switch
+  if (buttonState2 == LOW) {
+    Keyboard.press(KEY_LEFT_ALT);
+    delay(betweenKeys);
+    Keyboard.press('r');
+    delay(betweenKeys);
+    Keyboard.release('r');
+    delay(betweenKeys);
+    Keyboard.releaseAll();
+    delay(buttonDelayTime);
+  }
+
+  // Pause Switch
+  if (buttonState3 == LOW) {
+  Keyboard.press(32);  //Space Bar
+  Keyboard.releaseAll();
+  delay(buttonDelayTime);
+  }
+  
+  // Stop Switch
+  if(buttonState4 == LOW) {
+  Keyboard.press(KEY_ESC);
+  Keyboard.releaseAll();
+  delay(buttonDelayTime);
+  }
+  
+  // Coolant Switch
+  if (buttonState5 == LOW) {
+  Keyboard.press(KEY_LEFT_ALT);
+  delay(betweenKeys);
+  Keyboard.press('f');
+  delay(betweenKeys);
+  Keyboard.release('f');
+  delay(betweenKeys);
+  Keyboard.releaseAll();
+  delay(buttonDelayTime);
+  }
+
+}
