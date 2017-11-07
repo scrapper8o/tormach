@@ -14,7 +14,7 @@ void setup() {
 
 void loop() {
   
-// Check the switches:
+  // Check the switches:
   int buttonState2 = digitalRead(2);
   int buttonState3 = digitalRead(3);
   int buttonState4 = digitalRead(4);
@@ -34,28 +34,28 @@ void loop() {
 
   // Pause Switch
   if (buttonState3 == LOW) {
-  Keyboard.press(32);  //Space Bar
-  Keyboard.releaseAll();
-  delay(buttonDelayTime);
+   Keyboard.press(32);  //Space Bar
+   Keyboard.releaseAll();
+   delay(buttonDelayTime);
   }
   
   // Stop Switch
   if(buttonState4 == LOW) {
-  Keyboard.press(KEY_ESC);
-  Keyboard.releaseAll();
-  delay(buttonDelayTime);
+    Keyboard.press(KEY_ESC);
+    Keyboard.releaseAll();
+    delay(buttonDelayTime);
   }
   
   // Coolant Switch
   if (buttonState5 == LOW) {
-  Keyboard.press(KEY_LEFT_ALT);
-  delay(betweenKeys);
-  Keyboard.press('f');
-  delay(betweenKeys);
-  Keyboard.release('f');
-  delay(betweenKeys);
-  Keyboard.releaseAll();
-  delay(buttonDelayTime);
+    Keyboard.press(KEY_LEFT_ALT);
+    delay(betweenKeys);
+    Keyboard.press('f');
+    delay(betweenKeys);
+    Keyboard.release('f');
+    delay(betweenKeys);
+    Keyboard.releaseAll();
+    delay(buttonDelayTime);
   }
 
 }
